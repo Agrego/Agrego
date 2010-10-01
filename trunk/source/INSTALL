@@ -1,0 +1,20 @@
+#
+# This the installation file
+#
+
+1 Dependancies
+
+libssl (version)
+
+1.1 For developpement version:
+
+libcunit1-dev (version)
+doxygen (for code documentation)
+
+2 Compilation
+
+For debian like systems this package are required:
+libssl-dev libcunit1-dev (test)
+
+Just do an apt-get install
+

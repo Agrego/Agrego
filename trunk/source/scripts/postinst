@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+
+# launch agrego at startup
+update-rc.d agrego-@@ENDPOINT@@ defaults
+
+# add a default instance
+agrego-manage-@@ENDPOINT@@.sh --force --quiet add default

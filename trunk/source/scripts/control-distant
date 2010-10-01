@@ -1,0 +1,12 @@
+Package: agrego-distant
+Version: 0.1
+Section: admin
+Priority: optional
+Architecture: i386
+Depends: libssl0.9.8, openssl
+Replaces: none
+Installed-Size: 60k
+Maintainer: The Agrego Team <team@agrego.net>
+Description: 	AgreGo is a network link agregator.
+		It works at the IP level and need a local and a distant endpoint.
+		This package correspond to the distant endpoint.

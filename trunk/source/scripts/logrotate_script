@@ -1,0 +1,6 @@
+/var/log/agrego-*/*.log {
+    missingok
+    rotate 3
+    size 1M
+    notifempty
+}
