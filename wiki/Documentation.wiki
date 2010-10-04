@@ -1,0 +1,16 @@
+#summary find here the documentation of the project
+#labels Featured,Phase-Deploy
+
+=Documentation=
+
+If you have questions without answers, please ask on the mailing list.
+
+==For users==
+
+ * [DeployAgreGo]
+ * [HowAgregoDaemonWorksInternally] 
+ * [AgregoArchitecture]
+
+==For developpers==
+
+will come soon
