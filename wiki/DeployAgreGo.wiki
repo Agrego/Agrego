@@ -17,13 +17,7 @@ From package:
 
 aptitude install
 
-From source:
-{{{
-download
-tar -xf archive.tar.gz
-make
-make install - doesn't exists today
-}}}
+As make install doesn't exists yet, installation from source is completely manual. We are working to improve it (http://code.google.com/p/agrego/issues/detail?id=3).
 
 ==Package content==
 
@@ -78,10 +72,10 @@ The Interfaces section contain the configuration of the IP tunnel.
 If you use several instance of Agrego daemon, be careful that all IP tunnels have differents IP address. In this case the best thing is to put each IP tunnel in an other subnet.
 
 Interfaces.number_of_interfaces is the number of interface to agregate.
-This define the number of sections Link_? the file will contains.
+This define the number of sections Link`_`? the file will contains.
 For example if Interfaces.number_of_interfaces = 2, the file must also contains the 2 sections Link_1 and Link_2.
 
-Link_? sections contains the description of a connection to agregate.
+Link`_`? sections contains the description of a connection to agregate.
 Basicaly it's local IP address and port and distant IP address and port.
 The coefficient allow to control the speed of this connection compared with other connection.
 
