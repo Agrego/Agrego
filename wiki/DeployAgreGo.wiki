@@ -49,18 +49,31 @@ This script will create for you a directory in /etc/agrego-distant or /etc/agreg
 
 The default version of these files are stored on /usr/share/agrego-distant (or local).
 
-And a file agrego-distant-instanceName will be created in /etc/init.d. This file will allow you to run this new instance of agrego daemon.
+How the init.d script will works with several agrego instance (replace distant by local):
+{{{
+  # start all agrego instance
+$ /etc/init.d/agrego-distant start
+
+  # get the status of several instances 
+$ /etc/init.d/agrego-distant stop my_instance1 my_instance2
+
+  # stop one agrego instance
+$ /etc/init.d/agrego-distant stop my_instance
+}}}
 
 ==Configure Agrego==
 
-Agrego configuration file is agrego.ini file. The default version is commented.
-It contains at least 5 parts:
+Agrego configuration file is agrego.ini file. The default version is commented. This file is designed to be the same on both endpoints (local and distant) specifically for the interfaces and the Link`_`? sections.
+
+It contains at least 5 sections:
  * Network
  * Interfaces
- * Link 1
+ * Link`_`1
  * Failure detection
  * Connection rehabilitation
  * Logs
+
+The section Link`_`1 will be declined as Link`_`2, Link`_`3... according the number of network link you will aggregate.
 
 In this file terms local and distant represents the endpoints, as in the package name (agrego-distant, agrego-local).
 
@@ -79,6 +92,6 @@ Link`_`? sections contains the description of a connection to agregate.
 Basicaly it's local IP address and port and distant IP address and port.
 The coefficient allow to control the speed of this connection compared with other connection.
 
-start.sh and stop.sh files are shell scripts which are runned respectively when the Agrego daemon (which correspond to these files) start and stop. They are also runned when the daemon is restarted.
+_start.sh_ and _stop.sh_ files are shell scripts which are runned respectively when the Agrego daemon (which correspond to these files) start and stop. They are also runned when the daemon is restarted.
 
 The usual use of these script is to add NAT, and change default route to the agrego TUN interface and to put back default route and NAT when agrego stop.
