@@ -1,8 +1,90 @@
 #summary HOWTO deploy AgreGo
 #labels Phase-Deploy,Featured
 
-= Introduction =
 
-This page will explain HOWTO install AgreGo in your network.
+==pre requisite / architecture explanation==
 
-= Details =
+TODO: Describe the network achitecture and what is needed (lartc)
+
+You will certainly have more than one interface, on your Agrego endpoints. To
+configure your interfaces you can follow this HOWTO (on linux) http://lartc.org/lartc.html
+especially this part : http://lartc.org/lartc.html#LARTC.RPDB.MULTIPLE-LINK.
+
+==Install from source/package==
+
+From package:
+* agrego-local
+* agrego-distant
+
+aptitude install
+
+From source:
+
+download
+tar -xf archive.tar.gz
+make
+make install - doesn't exists today
+
+==Package content==
+
+Packages agrego-local and agrego-distant contains same files.
+Here we will describe the agrego-distant package.
+Replace distant by local to see the content of the agrego-local package.
+
+2 binaries:
+ * agrego_manage-distant.sh : this script allow to add and remove agrego instance (see 4/)
+ * agrego-distant   : the agrego daemon which will do the work
+
+==Agrego instance==
+
+As there is a need to launch several instance of Agrego daemon on the same machine, Agrego installation has been designed in this way.
+When Agrego is installed by using package, a first instance is created. So if you don't need several Agrego instance, you will not need to manage them.
+
+Create or remove Agrego instance can be done with agrego_manage-distant.sh script:
+
+$ agrego_manage-distant.sh add agrego_1
+$ agrego_manage-distant.sh list
+agrego_1
+$ agrego_manage-distant.sh del agrego_1
+
+
+This script will create for you a directory in /etc/agrego-distant or /etc/agrego-local and fill it with 3 files:
+* start.sh
+* stop.sh
+* agrego.ini
+
+The default version of these files are stored on /usr/share/agrego-distant (or local).
+
+And a file agrego-distant-instanceName will be created in /etc/init.d. This file will allow you to run this new instance of agrego daemon.
+
+==Configure Agrego==
+
+Agrego configuration file is agrego.ini file. The default version is commented.
+It contains at least 5 parts:
+* Network
+* Interfaces
+* Link 1
+* Failure detection
+* Connection rehabilitation
+* Logs
+
+In this file terms local and distant represents the endpoints, as in the package name (agrego-distant, agrego-local).
+
+Usually you will not need to change values of Failure detection, Connection rehabilitation and Logs sections.
+
+The value of Network.private_key need to be the same for distant and local server, this allow the distant to connect to the local endpoint.
+
+The Interfaces section contain the configuration of the IP tunnel.
+If you use several instance of Agrego daemon, be careful that all IP tunnels have differents IP address. In this case the best thing is to put each IP tunnel in an other subnet.
+
+Interfaces.number_of_interfaces is the number of interface to agregate.
+This define the number of sections Link_? the file will contains.
+For example if Interfaces.number_of_interfaces = 2, the file must also contains the 2 sections Link_1 and Link_2.
+
+Link_? sections contains the description of a connection to agregate.
+Basicaly it's local IP address and port and distant IP address and port.
+The coefficient allow to control the speed of this connection compared with other connection.
+
+start.sh and stop.sh files are shell scripts which are runned respectively when the Agrego daemon (which correspond to these files) start and stop. They are also runned when the daemon is restarted.
+
+The usual use of these script is to add NAT, and change default route to the agrego TUN interface and to put back default route and NAT when agrego stop.
