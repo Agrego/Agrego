@@ -1,0 +1,8 @@
+#summary HOWTO deploy AgreGo
+#labels Phase-Deploy,Featured
+
+= Introduction =
+
+This page will explain HOWTO install AgreGo in your network.
+
+= Details =
