@@ -3,12 +3,11 @@
 
 If you have questions without answers, please ask on the mailing list.
 
-==For users==
+===For users===
 
- * [DeployAgreGo]
- * [HowAgregoDaemonWorksInternally] 
- * [AgregoArchitecture]
+ * [DeployAgreGo HOWTO Deploy AgreGo]
+ * [HowAgregoDaemonWorksInternally How AgreGo works internally] 
 
-==For developpers==
+===For developpers===
 
-will come soon
+ * [CoddingRules Coding rules]
