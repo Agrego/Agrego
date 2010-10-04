@@ -6,6 +6,7 @@ If you have questions without answers, please ask on the mailing list.
 ===For users===
 
  * [DeployAgreGo HOWTO Deploy AgreGo]
+ * [ArchiExample example of a network architecture with AgreGo]
  * [HowAgregoDaemonWorksInternally How AgreGo works internally] 
 
 ===For developpers===
