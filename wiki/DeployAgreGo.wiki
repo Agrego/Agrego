@@ -7,7 +7,7 @@ TODO: Describe the network achitecture and what is needed (lartc)
 
 You will certainly have more than one interface, on your Agrego endpoints. To
 configure your interfaces you can follow this HOWTO (on linux) http://lartc.org/lartc.html
-especially this part : http://lartc.org/lartc.html#LARTC.RPDB.MULTIPLE-LINK.
+especially the part _4.2. Routing for multiple uplinks/providers_ : http://lartc.org/lartc.html#LARTC.RPDB.MULTIPLE-LINK.
 
 ==Install from source/package==
 
