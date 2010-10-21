@@ -13,24 +13,13 @@ _The draw is comming soon_
 As explained here : [http://lartc.org/lartc.html#LARTC.RPDB.MULTIPLE-LINK 4.2. Routing for multiple uplinks/providers], I do some route configuration to allow my *local Agrego endpoint* to use several ADSL connection.
 To be simple it says what comes by this network interface will go back by the same network interface.
 
-I added the 2 last lines in the file : /etc/iproute2/rt_tables
+I added the 2 lines below in the file : _/etc/iproute2/rt_tables_
 {{{
-#
-# reserved values
-#
-255     local
-254     main
-253     default
-0       unspec
-#
-# local
-#
-#1      inr.ruhep
 1 T1
 2 T2
 }}}
 
-Create a file with this:
+Create a file with this content, you can put it everywhere you want, in my home it's _/root/route.sh_:
 {{{
 IP1=192.168.0.1
 P1_NET=192.168.0.0
@@ -52,6 +41,27 @@ ip route add $P2_NET dev $IF2 src $IP2
 
 ip rule add from $IP1 table T1
 ip rule add from $IP2 table T2
+}}}
+
+And I launch this file at each boot by editing my _/etc/rc.local_ file (in debian):
+{{{
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+# add route for agrego
+bash /root/route.sh
+
+exit 0
 }}}
 
 == agrego.ini ==
