@@ -1,7 +1,7 @@
 #summary find here the documentation of the project
 #labels Featured,Phase-Deploy
 
-If you have questions without answers, please ask on the mailing list.
+If you have questions without answers, please ask on the mailing list agrego@googlegroups.com.
 
 ===For users===
 
