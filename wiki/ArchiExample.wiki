@@ -6,6 +6,8 @@ I want to aggregate 2 ADSL links as describe in the draw below:
 
 _The draw is comming soon_
 
+All the configuration here works in my home but according your network configuration a lot of things can changes. If you have question, ask the mailing list agrego@googlegroups.com.
+
 = The Configuration =
 
 == Route configuration ==
@@ -235,6 +237,46 @@ level = 6
 
 == NAT ==
 
-start.sh 
+I put NAT in my local endpoint as in my distant endpoint. Here are examples where IP are the same as in agrego.ini.
 
-stop.sh 
+_draw of changes in a paquet which go through Agrego, coming soon_
+
+=== distant ===
+
+_/root/nat.sh_
+{{{
+#!/bin/bash
+
+# flush NAT
+iptables -F
+iptables -F -t nat
+iptables -X
+iptables -P INPUT ACCEPT
+iptables -P OUTPUT ACCEPT
+iptables -P FORWARD ACCEPT
+
+# add NAT
+iptables -t nat -A POSTROUTING -o eth0 -j SNAT --to-source 87.98.187.236
+iptables -A INPUT -m state --state ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -m state --state ESTABLISHED -j ACCEPT
+}}}
+
+=== local ===
+
+_/root/nat.sh_
+{{{
+#!/bin/bash
+
+# flush NAT
+iptables -F
+iptables -F -t nat
+iptables -X
+iptables -P INPUT ACCEPT
+iptables -P OUTPUT ACCEPT
+iptables -P FORWARD ACCEPT
+
+# add NAT
+iptables -t nat -A POSTROUTING -o eth0 -j SNAT --to-source 10.0.0.1
+iptables -A INPUT -m state --state ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -m state --state ESTABLISHED -j ACCEPT
+}}}
