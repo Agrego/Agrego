@@ -120,17 +120,22 @@ Links you want to aggregate
 [Link_1]
 # configuration of a link between 2 endpoint
 
-# ip address on the local endpoint
+# public ip address on the local endpoint
 # string - no default value
-local_ip_address = 192.168.0.1
+local_ip_address_public = 88.185.136.13
+
+# private ip address on the local endpoint
+# if not defined the public address will be used
+# string - no default value
+local_ip_address_private = 192.168.0.1
 
 # port on the local endpoint
 # string - no default value
 local_port = 2000
 
-# ip address on the distant endpoint
+# public ip address on the distant endpoint
 # string - no default value
-distant_ip_address = 87.98.187.236
+distant_ip_address_public = 87.98.187.237
 
 # port on the distant endpoint
 # string - no default value
@@ -143,17 +148,22 @@ coefficient = 1
 [Link_2]
 # configuration of a link between 2 endpoint
 
-# ip address on the local endpoint
+# public ip address on the local endpoint
 # string - no default value
-local_ip_address = 192.168.0.2
+local_ip_address_public = 88.185.136.14
+
+# private ip address on the local endpoint
+# if not defined the public address will be used
+# string - no default value
+local_ip_address_private = 192.168.0.2
 
 # port on the local endpoint
 # string - no default value
 local_port = 2001
 
-# ip address on the distant endpoint
+# public ip address on the distant endpoint
 # string - no default value
-distant_ip_address = 87.98.187.236
+distant_ip_address_public = 87.98.187.237
 
 # port on the distant endpoint
 # string - no default value
@@ -256,7 +266,7 @@ iptables -P OUTPUT ACCEPT
 iptables -P FORWARD ACCEPT
 
 # add NAT
-iptables -t nat -A POSTROUTING -o eth0 -j SNAT --to-source 87.98.187.236
+iptables -t nat -A POSTROUTING -o eth0 -j SNAT --to-source 87.98.187.237
 iptables -A INPUT -m state --state ESTABLISHED -j ACCEPT
 iptables -A OUTPUT -m state --state ESTABLISHED -j ACCEPT
 }}}
