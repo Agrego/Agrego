@@ -95,7 +95,7 @@ local_agrego_ip_add = 10.0.0.1
 distant_agrego_ip_add = 10.0.0.2
 }}}
 
-Links you want to aggregate
+The 2 links you want to aggregate
 
 {{{
 [Link_1]
