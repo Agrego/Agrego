@@ -6,7 +6,7 @@ I want to aggregate 2 ADSL links as describe in the draw below:
 
 _The draw is comming soon_
 
-All the configuration here works in my home but according your network configuration a lot of things can changes. If you have question, ask the mailing list agrego@googlegroups.com.
+All the configuration here works in my home but according your network configuration a lot of things can changes.
 
 = The Configuration =
 
