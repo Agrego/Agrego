@@ -1,0 +1,184 @@
+#summary An example
+
+= The architecture =
+
+
+
+= The Configuration =
+
+
+== Route configuration ==
+
+route.sh
+
+== agrego.ini ==
+
+{{{
+#;;;;;;;;;;;;;;;;;;;
+# About Agrego.ini ;
+#;;;;;;;;;;;;;;;;;;;
+# This file is used by AgréGo to set his configuration.
+}}}
+
+The private key should be changed
+
+{{{
+[Network]
+
+# the private key used to do handshake between the to server
+# string -
+private_key = xxxxxxxxxxx
+
+# the MTU to use (size to read on Agrego interface and on the agregated interfaces)
+# int - 1504
+MTU = 1504
+}}}
+
+The Agrego tunnel:
+
+{{{
+[Interfaces]
+
+# Number of modem connected to the local Agrego server
+# int - 1
+number_of_interfaces = 1
+
+# name of the agrego device (the virtual interface)
+# string - agrego0
+tun_dev_name = agrego_ligro
+
+# ip address of the agrego virtual interface on the local endpoint
+# string - 10.0.0.1
+local_agrego_ip_add = 10.0.0.1
+
+# ip address of the agrego virtual interface on the distant endpoint
+# string - 10.0.0.2
+distant_agrego_ip_add = 10.0.0.2
+}}}
+
+Links you want to aggregate
+
+{{{
+[Link_1]
+# configuration of a link between 2 endpoint
+
+# ip address on the local endpoint
+# string - no default value
+local_ip_address = 192.168.0.1
+
+# port on the local endpoint
+# string - no default value
+local_port = 2000
+
+# ip address on the distant endpoint
+# string - no default value
+distant_ip_address = 87.98.187.236
+
+# port on the distant endpoint
+# string - no default value
+distant_port = 2000
+
+# coefficient of this interface, used for weighting this link with the others
+# int - default 1
+coefficient = 1
+
+[Link_2]
+# configuration of a link between 2 endpoint
+
+# ip address on the local endpoint
+# string - no default value
+local_ip_address = 192.168.0.2
+
+# port on the local endpoint
+# string - no default value
+local_port = 2001
+
+# ip address on the distant endpoint
+# string - no default value
+distant_ip_address = 87.98.187.236
+
+# port on the distant endpoint
+# string - no default value
+distant_port = 2001
+
+# coefficient of this interface, used for weighting this link with the others
+# int - default 1
+coefficient = 2
+}}}
+
+Failure detection and rehabilitation
+
+{{{
+[Failure_detection]
+
+# the interval of the ping in second
+# don't touch unless you know what you are doing
+# double - 0.5
+ping_interval = 0.5
+
+# the time after which the link is detected as failed in second
+# double - 1.5
+time = 1.5
+
+[Connection_rehabilitation]
+
+# Time in minutes waited between tries for the first wave of attempts of reconnection
+# int - default = 5
+wave_1_attempt_time = 0
+
+# Tries number of attempts of the first wave of reconnection
+# int - default = 4
+wave_1_tries = -1
+
+# Time in minutes waited between tries for the second wave of attempts of ;reconnection
+# int - default = 20
+wave_2_attempt_time = 0
+
+# Tries number of attempts of the second wave of reconnection
+# int - default = 3
+wave_2_tries = -1
+
+# Time in minutes waited between tries for the third wave of attempts of reconnection
+# int - default = 60
+wave_3_attempt_time = 0
+
+# Tries number of attempts of the third wave of reconnection
+# int - default = -1
+wave_3_tries = -1
+}}}
+
+The logging system use syslog by default
+
+{{{
+[Logs]
+
+# use syslog
+# can be 0 or 1
+# int default = 0
+use_syslog = 1
+
+# Log level
+# 7 Levels exist the same as the syslog level
+# int - default = 2
+#
+# Levels :
+# LOG_EMERG	0	/* system is unusable */
+# LOG_ALERT	1	/* action must be taken immediately */
+# LOG_CRIT	2	/* critical conditions */
+# LOG_ERR	3	/* error conditions */
+# LOG_WARNING	4	/* warning conditions */
+# LOG_NOTICE	5	/* normal but significant condition */
+# LOG_INFO	6	/* informational */
+# LOG_DEBUG	7	/* debug-level messages */
+level = 6
+
+# the log filename
+# string - /var/log/agrego.log
+# filename = 
+}}}
+
+== NAT ==
+
+start.sh 
+
+stop.sh 
