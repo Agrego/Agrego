@@ -64,6 +64,9 @@ bash /root/route.sh
 exit 0
 }}}
 
+*Important*
+Remember that you must not have a default route, otherwise you will only use this route.
+
 == agrego.ini ==
 
 {{{
