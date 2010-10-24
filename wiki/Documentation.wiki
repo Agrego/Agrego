@@ -3,6 +3,8 @@
 
 If you have questions without answers, please ask on the mailing list agrego@googlegroups.com.
 
+Today Agrego works only on linux platform.
+
 ===For users===
 
  * [DeployAgreGo HOWTO Deploy AgreGo]
