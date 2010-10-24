@@ -159,8 +159,6 @@ coefficient = 2
 
 I put NAT in my local endpoint as in my distant endpoint. Here are examples where IP are the same as in agrego.ini.
 
-_draw of changes in a paquet which go through Agrego, coming soon_
-
 === distant ===
 
 _/root/nat.sh_
