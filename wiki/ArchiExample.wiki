@@ -5,7 +5,10 @@
 I want to aggregate 2 ADSL links as describe in the draw below:
 
 http://daligro.net/agrego/example-adsl-architecture.png
-_The draw is comming soon_
+
+On each agrego endpoint, the agrego daemon create a TUN interface. The IP addresses given to these interfaces can be configured in the agrego.ini file. On this example, the IP adresses will be:
+ * on local endpoint: 10.0.0.1
+ * on distant endpoint: 10.0.0.2
 
 All the configuration here works in my home but according your network configuration a lot of things can changes.
 
