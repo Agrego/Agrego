@@ -6,6 +6,8 @@ I want to aggregate 2 ADSL links as describe in the draw below:
 
 http://daligro.net/agrego/example-adsl-architecture.png
 
+Notes, in this configuration the distant endpoints have only one network interface and only one IP address.
+
 On each agrego endpoint, the agrego daemon create a TUN interface. The IP addresses given to these interfaces can be configured in the agrego.ini file. On this example, the IP adresses will be:
  * on local endpoint: 10.0.0.1
  * on distant endpoint: 10.0.0.2
