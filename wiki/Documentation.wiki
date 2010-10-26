@@ -5,12 +5,8 @@ If you have questions without answers, please ask on the mailing list agrego@goo
 
 Today Agrego works only on linux platform.
 
-===For users===
-
  * [DeployAgreGo HOWTO Deploy AgreGo]
  * [ArchiExample Example of a network architecture with AgreGo]
  * [HowAgregoDaemonWorksInternally How AgreGo works internally] 
 
-===For developpers===
-
- * [CoddingRules Coding rules]
+If you want to contribute, you can discuss with us or send patch to us using the mailing lists _agrego@googlegroups.com_.
