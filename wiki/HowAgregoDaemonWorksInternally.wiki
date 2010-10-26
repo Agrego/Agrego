@@ -6,7 +6,7 @@ AgreGo is implemented in C and in user space. Today it works only on linux syste
 
 To aggregate several network links, AgreGo create an IP tunnel. To create it, Agrego use TUN interfaces. One TUN interface is created on each AgreGo endpoint. They are the both end of the IP tunnel. 
 
-_draw_
+http://daligro.net/agrego/internally.png
 
 The aggregation is done by the C program which read packets from the TUN, write them on UDP socket and also read packets from UDP sockets and write them on the TUN on each endpoints.
 
