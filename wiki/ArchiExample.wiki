@@ -159,6 +159,15 @@ distant_port = 2001
 coefficient = 2
 }}}
 
+If the modems are NATed router, they have to be configured to to forward port on UDP like this:
+ * modem1: from 88.185.136.13:2000 to 192.168.0.1:2000
+ * modem2: from 88.185.136.14:2001 to 192.168.0.2:2001
+
+for example for the modem1 the iptable rules can be (if eth1 is the interface with the IP 88.185.136.13):
+{{{
+iptables -t nat -A PREROUTING -p udp -i eth1 -d 88.185.136.13 --dport 2000 -j DNAT --to 192.168.0.1:2000
+}}}
+
 == NAT ==
 
 I put NAT in my local endpoint as in my distant endpoint. Here are examples where IP are the same as in agrego.ini.
