@@ -3,4 +3,5 @@
 set -e
 
 # remove all configuration
-agrego-manage-@@ENDPOINT@@.sh --force --quiet delall
+# FIXME remove only when purge (not when reinstall or remove)
+# agrego-manage-@@ENDPOINT@@.sh --force --quiet delall

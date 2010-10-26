@@ -34,7 +34,7 @@ void	runAgrego(struct agrego *ag)
 	nfds_t 	nbFds; /* might be in agrego struct with struct pollfd */
 	int 	nbFdsReadEvent;
 
-	bufSize = xiniparser_getint("Network:MTU", 1500);
+	bufSize = xiniparser_getint("Network:MTU", 1504);
 	buffer = xmalloc(bufSize * sizeof(char));
 
 	nbFds = ag->nbConn + 1;

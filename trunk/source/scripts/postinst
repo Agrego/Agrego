@@ -6,4 +6,9 @@ set -e
 update-rc.d agrego-@@ENDPOINT@@ defaults
 
 # add a default instance
-agrego-manage-@@ENDPOINT@@.sh --force --quiet add default
+# TODO do next line only if it's and install not reinstall or update
+INSTANCES=`agrego-manage-@@ENDPOINT@@.sh list`
+if [ ! "$INSTANCES" ]
+then
+	agrego-manage-@@ENDPOINT@@.sh --force --quiet add default
+fi
