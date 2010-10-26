@@ -25,7 +25,7 @@ Create a file with this content, you can put it everywhere you want, in my home 
 {{{
 IP1=192.168.0.1
 P1_NET=192.168.0.0
-P1=192.168.0.254
+P1=192.168.0.253
 IF1=eth0
 
 IP1=192.168.0.2
