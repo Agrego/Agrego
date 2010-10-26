@@ -95,3 +95,7 @@ The coefficient allow to control the speed of this connection compared with othe
 _start.sh_ and _stop.sh_ files are shell scripts which are runned respectively when the Agrego daemon (which correspond to these files) start and stop. They are also runned when the daemon is restarted.
 
 The usual use of these script is to add NAT, and change default route to the agrego TUN interface and to put back default route and NAT when agrego stop.
+
+==Find issue==
+
+If you want to use _netcat_ to check that distant endpoint can connect to local endpoint using UDP,  
