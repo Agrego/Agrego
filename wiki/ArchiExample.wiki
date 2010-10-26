@@ -161,6 +161,8 @@ distant_port = 2001
 coefficient = 2
 }}}
 
+Because the link 2 have a coefficient of 2, instead of 1 for the link 1. Agrego will send 2 times more packets on the link 2 than on the link 1.
+
 If the modems are NATed router, they have to be configured to to forward port on UDP like this:
  * modem1: from 88.185.136.13:2000 to 192.168.0.1:2000
  * modem2: from 88.185.136.14:2001 to 192.168.0.2:2001
