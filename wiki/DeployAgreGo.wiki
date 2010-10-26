@@ -9,6 +9,8 @@ You will certainly have more than one interface, on your Agrego endpoints. To
 configure your interfaces you can follow this HOWTO (on linux) http://lartc.org/lartc.html
 especially the part _4.2. Routing for multiple uplinks/providers_ : http://lartc.org/lartc.html#LARTC.RPDB.MULTIPLE-LINK.
 
+If you have one or several (one per connection) NATed router between your distant and your local endpoint, you have to configure it to forward UDP packets on ports used by Agrego (you can configure these ports). 
+
 ==Install from source/package==
 
 From package:
@@ -96,6 +98,7 @@ _start.sh_ and _stop.sh_ files are shell scripts which are runned respectively w
 
 The usual use of these script is to add NAT, and change default route to the agrego TUN interface and to put back default route and NAT when agrego stop.
 
-==Find issue==
+==Troubleshooting during installation==
 
-If you want to use _netcat_ to check that distant endpoint can connect to local endpoint using UDP,  
+If you want to use _netcat_ to check that distant endpoint can connect to local endpoint using UDP, you will see an error like "_network unreachable_".
+This error doesn't mean that the distant can't discuss with the local with the UDP protocol. TCP works fine but remember Agrego use UDP.
