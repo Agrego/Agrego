@@ -8,6 +8,8 @@ To aggregate several network links, AgreGo create an IP tunnel. To create it, Ag
 
 http://daligro.net/agrego/internally.png
 
+On the draw, network interface can be virtual, and links can be something else than cable (WIFI, ADSL connection, ...).
+
 The aggregation is done by the C program which read packets from the TUN, write them on UDP socket and also read packets from UDP sockets and write them on the TUN on each endpoints.
 
 To _connect_ the both endpoints, a handshake is done. It have been implemented manually, and will be replaced to works with SSL or TLS.
