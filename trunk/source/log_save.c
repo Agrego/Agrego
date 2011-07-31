@@ -19,7 +19,7 @@ int	log_write(int level, const char *format, ...)
 		return 0;
 	}
 
-	if (xiniparser_getstring("Logs:use_syslog", 0))
+	if (xiniparser_getint("Logs:use_syslog", 0))
 	{
 		openlog(SYSLOG_IDENT, LOG_PID, LOG_DAEMON);
 		va_start(args, format);
