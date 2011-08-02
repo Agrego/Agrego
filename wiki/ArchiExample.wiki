@@ -34,10 +34,10 @@ P1_NET=192.168.0.0
 P1=192.168.0.253
 IF1=eth0
 
-IP1=192.168.0.2
-P1_NET=192.168.0.0
-P1=192.168.0.254
-IF1=eth1
+IP2=192.168.0.2
+P2_NET=192.168.0.0
+P2=192.168.0.254
+IF2=eth1
 
 ip route add $P1_NET dev $IF1 src $IP1 table T1
 ip route add default via $P1 table T1
