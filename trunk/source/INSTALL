@@ -1,7 +1,3 @@
-#
-# This the installation file
-#
-
 1 Dependancies
 
 libssl (version)
@@ -13,8 +9,11 @@ doxygen (for code documentation)
 
 2 Compilation
 
-For debian like systems this package are required:
-libssl-dev libcunit1-dev (test)
+./bootstrap
+./configure
+make
 
-Just do an apt-get install
+For debian like systems this package are required:
+ * libssl-dev
+ * for unit test libcunit1-dev
 
