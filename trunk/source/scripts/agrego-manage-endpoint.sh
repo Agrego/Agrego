@@ -6,9 +6,9 @@
 
 # initialize some var
 ENDPOINT="@@ENDPOINT@@"
-ETC_DIR="/etc/agrego-$ENDPOINT"
-INIT_DIR="/etc/init.d"
-TPL_DIR="/usr/share/agrego-$ENDPOINT"
+ETC_DIR="@@sysconfdir_@@/agrego-$ENDPOINT"
+INIT_DIR="@@sysconfdir_@@/init.d"
+TPL_DIR="@@datadir_@@/agrego-$ENDPOINT"
 
 # fill optionnal parameter
 FORCE=0
@@ -166,7 +166,7 @@ agrego_add()
 	else
 		do_echo ""
 		do_echo "To launch the Agrego $AGREGO_NAME daemon, launch:"
-		do_echo "/etc/init.d/agrego-$ENDPOINT start"
+		do_echo "@@sysconfdir_@@/init.d/agrego-$ENDPOINT start"
 		do_echo ""
 		do_echo "To launch $AGREGO_NAME at startup, add the next line into the file $ETC_DIR/startup"
 		do_echo $AGREGO_NAME
@@ -198,12 +198,7 @@ agrego_del()
 
 	$RM -r $ETC_DIR/$AGREGO_NAME/
 
-	# remove log file if it exist
-	FILE="/var/log/agrego-$ENDPOINT/$AGREGO_NAME.log"
-	if [ -x $FILE ]
-	then
-		$RM $FILE
-	fi
+  # remove log file ??
 }
 
 agrego_delall()

@@ -7,7 +7,7 @@
 #
 # It's usefull to manage NAT, and route
 
-INIFILE=/etc/agrego-@@ENDPOINT@@/@@NAME@@/agrego.ini
+INIFILE=@@sysconfdir_@@/agrego-@@ENDPOINT@@/@@NAME@@/agrego.ini
 
 # simple function to parse agrego.ini file
 # for example to get the value of the variable my_var

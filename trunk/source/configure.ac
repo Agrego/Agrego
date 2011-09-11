@@ -8,14 +8,6 @@ AC_INIT([agrego], [0.2], [agrego@googlegoups.com])
 ## subdir-objects to put each object files in the same (sub)dirs as the c source they correspond
 AM_INIT_AUTOMAKE([subdir-objects -Wall -Werror])
 
-# add option to add or not cunit support
-AC_MSG_CHECKING([whether to enable cunit])
-AC_ARG_WITH(cunit,
-    [  --with-cunit             enable cunit support],
-    with_cunit=$withval,
-    with_cunit=no)
-AC_MSG_RESULT($with_cunit)
-
 AC_CONFIG_SRCDIR([connexion.c])
 AC_CONFIG_HEADERS([config.h])
 
@@ -23,6 +15,9 @@ AC_CONFIG_HEADERS([config.h])
 AC_PROG_CC
 # need when use : AUTOMAKE_OPTIONS = subdir-objects in Makefile.am
 AM_PROG_CC_C_O
+
+# set the language
+AC_LANG(C)
 
 # Checks for libraries.
 # TODO add  crypto for debian testing
@@ -34,6 +29,14 @@ AC_SEARCH_LIBS([timer_create], [rt], [], [
         echo "Error! librt not found."
         exit -1
         ])
+
+# add option to add or not cunit support
+AC_MSG_CHECKING([whether to enable cunit])
+AC_ARG_WITH(cunit,
+    [  --with-cunit             enable cunit support],
+    with_cunit=$withval,
+    with_cunit=no)
+AC_MSG_RESULT($with_cunit)
 
 if test $with_cunit = "yes"; then
   # This add "-lcunit" to LIBS if it exists

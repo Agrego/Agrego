@@ -27,8 +27,8 @@ PATH=/sbin:/usr/sbin:/bin:/usr/bin
 ENDPOINT=@@ENDPOINT@@
 DESC="AgreGo: the link agregator, $ENDPOINT endpoint"
 
-DAEMON=/usr/sbin/agrego-$ENDPOINT
-SCRIPTNAME=/etc/init.d/agrego-$ENDPOINT
+DAEMON=@@sbindir_@@/agrego-$ENDPOINT
+SCRIPTNAME=@@sysconfdir_@@/init.d/agrego-$ENDPOINT
 
 # Exit if the package is not installed
 [ -x "$DAEMON" ] || exit 0
@@ -117,6 +117,11 @@ do_reload() {
 # function to run foreach agrego list
 #
 do_action() {
+	PIDFILE=@@sharedstatedir_@@/run/agrego-$ENDPOINT/$NAME.pid
+	ETC_DIR=@@sysconfdir_@@/agrego-$ENDPOINT/$NAME
+	INIFILE=$ETC_DIR/agrego.ini
+	DAEMON_ARGS="--daemon --pid-file $PIDFILE $INIFILE"
+
 	case "$ACTION" in
 	  start)
 		[ "$VERBOSE" != no ] && log_daemon_msg "Starting $DESC" "$NAME"
@@ -190,25 +195,16 @@ shift 1 # remove first arg
 # run ACTION for all agrego installed
 if [ $# -eq 0 ]
 then
-	for NAME in $(agrego-manage-$ENDPOINT.sh list)
+	for NAME in $(@@sbindir_@@/agrego-manage-$ENDPOINT.sh list)
 	do
-		PIDFILE=/var/run/agrego-$ENDPOINT/$NAME.pid
-		ETC_DIR=/etc/agrego-$ENDPOINT/$NAME
-		INIFILE=$ETC_DIR/agrego.ini
-		DAEMON_ARGS="--daemon --pid-file $PIDFILE $INIFILE"
-
 		do_action
 	done
 	exit 0
 fi
 
+
 for NAME in $@
 do
-	PIDFILE=/var/run/agrego-$ENDPOINT/$NAME.pid
-	ETC_DIR=/etc/agrego-$ENDPOINT/$NAME
-	INIFILE=$ETC_DIR/agrego.ini
-	DAEMON_ARGS="--daemon --pid-file $PIDFILE $INIFILE"
-
 	do_action
 done
 

@@ -1,17 +1,22 @@
 1 Dependancies
 
-libssl (version)
+libssl (0.9.7)
 
 1.1 For developpement version:
 
-libcunit1-dev (version)
+libcunit1-dev
 doxygen (for code documentation)
 
 2 Compilation
 
+The following steps will install agrego-local and agrego-distant. Today there is no way
+to install only one using 'make install'.
+
 ./bootstrap
 ./configure
 make
+make install
+
 
 For debian like systems this package are required:
  * libssl-dev
