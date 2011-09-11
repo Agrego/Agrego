@@ -19,7 +19,15 @@ From package:
 
 aptitude install
 
-As make install doesn't exists yet, installation from source is completely manual. We are working to improve it (http://code.google.com/p/agrego/issues/detail?id=3).
+Agrego use autotools so you can checkout from svn or use the dist tarball install agrego using:
+{{{
+./configure
+make 
+make install
+}}}
+
+
+There is only one tarball because it contains local and distant, contrary to the .deb packages.
 
 ==Package content==
 
