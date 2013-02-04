@@ -31,6 +31,4 @@ AgreGo has been designed to work on xDSL links. In this case, one of the 2 endpo
 
 ## Links
 
- * [Documentation]
- * [Roadmap]
  * mailing list: agrego@googlegroups.com
